@@ -5,7 +5,7 @@
 </svelte:head>
 
 <section class="flex flex-col h-screen items-center justify-center text-center px-8">
-    <h1 class="text-4xl leading-7">Fire Extinguisher Prices</h1>
+    <h1 class="text-4xl leading-normal">Fire Extinguisher Prices</h1>
     <p>As an Amazon Associate I earn from qualifying purchases</p>
     <a href="https://amzn.to/3WGMtja" target="_blank" class="mt-6 font-bold">Buy on Amazon</a>
 </section>
