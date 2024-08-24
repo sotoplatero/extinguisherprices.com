@@ -3,15 +3,10 @@ import { table } from '$lib/deta';
 
 export const load: PageLoad = async () => {
  
-      try {
+  const {items} = await table('products').fetch()
 
-        const {items: products} = await table('products').fetch() ?? []
-        return { products };
+  const products = items ?? []
 
-      } catch (error) { 
-        console.log(error); 
-      }
-
-      return { products: [] };
+  return { products };
 
 };

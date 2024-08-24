@@ -13,8 +13,7 @@
 
 <section class="flex justify-between    py-4 border-b">
     <h1 class="text-lg leading-snug font-bold">🔥 Fire Extinguishers</h1>
-    <a href="/about">About</a>
-    <!-- <a href="https://amzn.to/3WGMtja" target="_blank" class="mt-6 font-bold p-3 bg-blue-500 text-white rounded">Buy on Amazon</a> -->
+    <a href="/fag">FAQ</a>
 </section>
 
 <div class="mt-8">
@@ -23,9 +22,9 @@
         {#each products as product}
             <li class="flex items-center justify-between gap-4 group">
                 <div class="flex items-center gap-4">
-                    <div class="border border-gray-400 rounded flex-none size-20">
+                    <a href="{product.DetailPageURL}" target="_actions" class="border border-gray-400 rounded flex-none size-20">
                         <img src="{product.Images.Primary.Medium.URL}" alt="" class="p-2 size-20 group-hover:scale-110 transition" loading="lazy">
-                    </div>
+                    </a>
                     <div>
                         <a href="{product.DetailPageURL}" class="line-clamp-2" target="_blank">{ product.ItemInfo.Title.DisplayValue}</a>
                         <!-- {JSON.stringify(product.Offers.Listings[0])} -->
@@ -42,8 +41,10 @@
         {/each}
     </ul>
 </div>
-    
-<p>As an Amazon Associate I earn from qualifying purchases</p>
+
+<footer class="py-8 text-center">
+    <p>This site is powered by paid affiliate links.</p>
+</footer>
 
 <style>
     a {
