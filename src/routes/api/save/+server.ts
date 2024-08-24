@@ -4,7 +4,7 @@ import amazonPaapi from 'amazon-paapi';
 import type { RequestHandler } from '../$types';
 import { table } from '$lib/deta';
 
-export async function GET({request}): Promise<Response> {
+export async function POST({request}): Promise<Response> {
 
     // if (request.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
     //     return error(401,'Unauthorized', )
