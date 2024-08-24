@@ -11,13 +11,13 @@
 	<meta name="description" content="Comparison of all Fire Extinguisher on Amazon sorted by price." />
 </svelte:head>
 
-<section class="flex justify-between    py-4 border-b">
+<section class="flex justify-between items-center py-4 border-b">
     <h1 class="text-lg leading-snug font-bold">🔥 Fire Extinguishers</h1>
-    <a href="/fag">FAQ</a>
+    <a href="/wizard" class="btn btn-primary">Help me to Select</a>
 </section>
 
 <div class="mt-8">
-
+    
     <ul class="space-y-8">
         {#each products as product}
             <li class="flex items-center justify-between gap-4 group">
@@ -46,8 +46,3 @@
     <p>This site is powered by paid affiliate links.</p>
 </footer>
 
-<style>
-    a {
-        @apply text-blue-600;
-    }
-</style>
