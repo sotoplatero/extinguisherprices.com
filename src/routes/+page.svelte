@@ -13,7 +13,7 @@
 
 <section class="flex justify-between items-center py-4 border-b">
     <h1 class="text-lg leading-snug font-bold">🔥 Fire Extinguishers</h1>
-    <a href="/wizard" class="btn btn-primary">Help me to Select</a>
+    <a href="/wizard" class="btn btn-primary">Help me Select</a>
 </section>
 
 <div class="mt-8">
