@@ -1,9 +1,9 @@
-name: Class D Fire Extinguisher
+name: Portable Fire Extinguisher
 
 on:
   schedule:
     # Ejecutar todos los días a las 3:00 AM
-    - cron: '10-19 1-23/2 * * *'
+    - cron: '20-29 1-23/2 * * *'
 
 jobs:
   call-api:
@@ -15,4 +15,4 @@ jobs:
 
       - name: Call API
         run: |
-          curl -X POST "https://extinguisherprices.com/api/save?q=Class%20D%20Fire%20Extinguisher" -H "Accept: application/json"
+          curl -X POST "https://extinguisherprices.com/api/save?q=Portable%20Fire%20Extinguisher" -H "Accept: application/json"
