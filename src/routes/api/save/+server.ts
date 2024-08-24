@@ -4,7 +4,7 @@ import amazonPaapi from 'amazon-paapi';
 import type { RequestHandler } from '../$types';
 import { table } from '$lib/deta';
 
-export async function POST({url}): Promise<Response> {
+export async function GET({url}): Promise<Response> {
 
     // if (request.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
     //     return error(401,'Unauthorized', )
@@ -44,8 +44,8 @@ export async function POST({url}): Promise<Response> {
             await table('products').putMany(items)
         }
         
-        ItemPage = (ItemPage == 10) ? 1 : ItemPage++
-
+        ItemPage = (ItemPage == 10) ? 1 : ItemPage + 1
+        console.log(ItemPage)
         await table('metadata').put( ItemPage, 'ItemPage') 
 
         return new Response('OK');
