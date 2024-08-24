@@ -20,7 +20,7 @@
 
 <div class="h-screen flex flex-col items-center justify-center mx-auto">
 
-    <h1 class="text-3xl font-bold mb-6">Fire Extinguisher Selection Wizard</h1>
+    <h1 class="text-3xl text-center font-bold mb-6">Fire Extinguisher Selection Wizard</h1>
     <form action="/wizard" class="w-full max-w-screen-sm mx-auto bg-base-100 p-6 rounded border border-gray-600">
         
         <!-- Steps -->
@@ -112,20 +112,23 @@
         
         <!-- Navigation Buttons -->
         <div class="flex justify-between gap-4 mt-6">
-            <button class="btn" disabled={currentStep === 1} on:click={prevStep}>Previous</button>
-            {#if currentStep < 5}
-            <button class="btn btn-primary" on:click={nextStep}>Next</button>
-            {/if}
-            {#if currentStep == 5}
-            
-            <button class="btn btn-primary ">Finish</button>
-            {/if}
+            <a href="/" class="btn btn-link">Cancel</a>
+            <div>
+                <button class="btn" disabled={currentStep === 1} on:click={prevStep}>Previous</button>
+                {#if currentStep < 5}
+                <button class="btn btn-primary" on:click={nextStep}>Next</button>
+                {/if}
+                {#if currentStep == 5}
+                
+                <button class="btn btn-primary ">Finish</button>
+                {/if}
+            </div>
         </div>
     </form>
 </div>
 
 <style>
     .step {
-        @apply h-72;
+        @apply h-[28rem] sm:h-72;
     }
 </style>
