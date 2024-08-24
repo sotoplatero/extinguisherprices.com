@@ -1,9 +1,9 @@
-name: Foam Fire Extinguisher
+name: Water Fire Extinguisher
 
 on:
   schedule:
     # Ejecutar todos los días a las 3:00 AM
-    - cron: '40-49 0-23/2 * * *'
+    - cron: '50-59 0-23/2 * * *'
 
 jobs:
   call-api:
@@ -15,4 +15,4 @@ jobs:
 
       - name: Call API
         run: |
-          curl -X POST "https://extinguisherprices.com/api/save?q=Foam%20Fire%20Extinguisher" -H "Accept: application/json"
+          curl -X POST "https://extinguisherprices.com/api/save?q=Water%20Fire%20Extinguisher" -H "Accept: application/json"
