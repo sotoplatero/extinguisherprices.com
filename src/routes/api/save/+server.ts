@@ -1,12 +1,14 @@
-import { json, text } from '@sveltejs/kit';
+import { json, text, error } from '@sveltejs/kit';
 import {commonParameters } from '$lib/amazon';
 import amazonPaapi from 'amazon-paapi';
 import type { RequestHandler } from '../$types';
-import { redis } from '$lib/upstash';
-import {updateProducts} from '$lib/utils/updateItem';
 import { table } from '$lib/deta';
 
-export async function GET({ request }) {
+export async function GET({request}): Promise<Response> {
+
+    // if (request.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
+    //     return error(401,'Unauthorized', )
+    // }    
 
     const response = await table('metadata').get('ItemPage') 
     const ItemPage = response.value ?? 1
@@ -25,7 +27,6 @@ export async function GET({ request }) {
           "ItemInfo.ProductInfo",
           "ItemInfo.ContentInfo",
           'Offers.Listings.Price',
-          // 'Offers.Summaries.LowestPrice',
           "Offers.Listings.MerchantInfo",
           "BrowseNodeInfo.BrowseNodes.SalesRank"
         ],
