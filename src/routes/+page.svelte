@@ -7,7 +7,7 @@
 </script>  
 
 <svelte:head>
-	<title>Fire Extinguisher Prices</title>
+	<title>Fire Extinguishers Prices</title>
 	<meta name="description" content="Comparison of all Fire Extinguisher on Amazon sorted by price." />
 </svelte:head>
 
@@ -26,7 +26,7 @@
                         <img src="{product.Images.Primary.Medium.URL}" alt="" class="p-2 size-20 group-hover:scale-110 transition" loading="lazy">
                     </a>
                     <div>
-                        <a href="{product.DetailPageURL}" class="line-clamp-2" target="_blank">{ product.ItemInfo.Title.DisplayValue}</a>
+                        <a href="{product.DetailPageURL}" class="line-clamp-2 pr-10" target="_blank">{ product.ItemInfo.Title.DisplayValue}</a>
                         <!-- {JSON.stringify(product.Offers.Listings[0])} -->
                         <div class="text-sm">{product.Offers.Listings[0].MerchantInfo?.FeedbackRating}⭐ - {product.Offers.Listings[0].MerchantInfo?.FeedbackCount} ratings</div>
                         <!-- <div>{JSON.stringify(product.BrowseNodeInfo)}</div> -->
