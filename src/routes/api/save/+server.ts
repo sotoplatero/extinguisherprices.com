@@ -4,19 +4,17 @@ import amazonPaapi from 'amazon-paapi';
 import type { RequestHandler } from '../$types';
 import { table } from '$lib/deta';
 
-export async function POST({request}): Promise<Response> {
+export async function POST({url}): Promise<Response> {
 
     // if (request.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
     //     return error(401,'Unauthorized', )
     // }    
-
+    const q = url.searchParams.get('q')
     const response = await table('metadata').get('ItemPage') 
-    const ItemPage = response.value ?? 1
-
-    console.log(ItemPage)
+    let ItemPage: number = response?.value as number ?? 1
 
     let requestParameters = {
-        Keywords: 'fire extinguisher',
+        Keywords: q,
         SearchIndex: 'ToolsAndHomeImprovement',
         ItemPage: ItemPage,
         BrowseNodeId: "13400621",
@@ -43,13 +41,12 @@ export async function POST({request}): Promise<Response> {
 
         // console.log(items)
         if (items.length > 0) {
-            await table('metadata').put( ItemPage + 1, 'ItemPage') 
-            
-            await table('products').putMany(items) ?? []
-
-        } else { 
-            await table('metadata').put( 1, 'ItemPage') 
+            await table('products').putMany(items)
         }
+        
+        ItemPage = (ItemPage == 10) ? 1 : ItemPage++
+
+        await table('metadata').put( ItemPage, 'ItemPage') 
 
         return new Response('OK');
 
