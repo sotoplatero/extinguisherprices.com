@@ -1,36 +1,33 @@
-name: Fire Extinguisher API Calls
+name: Scheduled Run Injest Script
 
 on:
   schedule:
-    # Ejecutar todos los días cada dos horas desde las 12:00 AM hasta las 9:00 AM
-    - cron: '0 */4 * * *'
+    # Runs the workflow at the beginning of every hour
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
-  call-api:
+  run-injest:
     runs-on: ubuntu-latest
 
+    env:  # Define environment variables here
+      NODE_ENV: production
+      DETA_PROJECT_KEY: ${{ secrets.DETA_PROJECT_KEY }}
+      AMAZON_ACCESS_KEY: ${{ secrets.AMAZON_ACCESS_KEY }}
+      AMAZON_SECRET_KEY: ${{ secrets.AMAZON_SECRET_KEY }}
+      AMAZON_ASSOCIATE_TAG: ${{ secrets.AMAZON_ASSOCIATE_TAG }}
+
     steps:
-      - name: Call API with multiple q values
-        run: |
-          queries=(
-            "ABC%20Fire%20Extinguisher"
-            "CO2%20Fire%20Extinguisher"
-            "Class%20K%20Fire%20Extinguisher"
-            "Dry%20Chemical%20Fire%20Extinguisher"
-            "Foam%20Fire%20Extinguisher"
-            "Water%20Fire%20Extinguisher"
-            "Halon%20Fire%20Extinguisher"
-            "Class%20D%20Fire%20Extinguisher"
-            "Portable%20Fire%20Extinguisher"
-            "Home%20Fire%20Extinguisher"
-            "Commercial%20Fire%20Extinguisher"
-            "Kitchen%20Fire%20Extinguisher"
-          )
-          for q in "${queries[@]}"; do
-            echo "Processing query: $q"
-            for i in {1..10}; do
-              curl -X POST "https://extinguisherprices.com/api/save?q=$q&page=$i" -H "Accept: application/json"
-              echo "Call #$i for query $q completed."
-              sleep 50  # Espera 1 minuto entre cada llamada
-            done
-          done
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '21'  # Specify the version of Node.js you want to use
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Run injest script
+      run: node injest.js

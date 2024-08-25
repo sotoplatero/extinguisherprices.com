@@ -27,6 +27,7 @@ export async function POST({url}): Promise<Response> {
           "ItemInfo.TechnicalInfo",
           "ItemInfo.ProductInfo",
           "ItemInfo.ContentInfo",
+          "ItemInfo.Features",
           'Offers.Listings.Price',
           "Offers.Listings.MerchantInfo",
           "BrowseNodeInfo.BrowseNodes.SalesRank"

@@ -1,9 +1,22 @@
 <script lang="ts">
+    import Products from '$lib/components/Products.svelte';
+    import Footer from '$lib/components/Footer.svelte';
+    import Header from '$lib/components/Header.svelte';
     export let data
 
     // console.log(data)
+    let q =''
+    let products = data?.products || []
 
-    let products = data?.products
+    $: if (q) {
+        products = data?.products.filter(product => 
+            !/bracket|cable|cabinet|Gauges/i.test(product.ItemInfo?.Title?.DisplayValue) && 
+            product.ItemInfo?.Title?.DisplayValue.includes(q)
+    
+        )
+    }
+
+    // $: console.log(products)
 </script>  
 
 <svelte:head>
@@ -12,40 +25,27 @@
 </svelte:head>
 
 
-<header class="border-b py-2">
-    <div class="flex justify-between items-center w-full max-w-screen-lg mx-auto">
-        <h1 class="text-lg leading-snug font-bold">🔥 Fire Extinguishers</h1>
-        <a href="/wizard" class="btn btn-primary font-bold text-white">Help me Select</a>
+<Header />
+<div class="my-8 space-y-4">
+    <div class="flex items-end gap-2">
+        <label for="q" class="">
+            <div>Search</div>
+            <input type="text" name="q" bind:value={q} class="input input-bordered">
+        </label>
+        <label for="minprice">
+            <div>Min Price</div>
+            <input type="text" name="minprice" class="input input-bordered w-20">
+        </label>
+        <label for="minprice">
+            <div>Max Price</div>
+            
+            <input type="text" name="maxprice" class="input input-bordered w-20">
+        </label>
+        <button class="btn">Search</button>
     </div>
-</header>
+    <Products {products} />
 
-<div class="mt-8">
-    
-    <ul class="space-y-8">
-        {#each products as product}
-            <li class="flex items-center justify-between gap-4 group">
-                <div class="flex items-center gap-4">
-                    <a href="{product.DetailPageURL}" target="_actions" class="border border-gray-400 rounded flex-none size-20">
-                        <img src="{product.Images.Primary.Medium.URL}" alt="" class="p-2 size-20 group-hover:scale-110 transition" loading="lazy">
-                    </a>
-                    <div>
-                        <a href="{product.DetailPageURL}" class="line-clamp-2 pr-10" target="_blank">{ product.ItemInfo.Title.DisplayValue}</a>
-                        <!-- {JSON.stringify(product.Offers.Listings[0])} -->
-                        <div class="text-sm">{product.Offers?.Listings[0].MerchantInfo?.FeedbackRating}⭐  {product.Offers?.Listings[0].MerchantInfo?.FeedbackCount} ratings</div>
-                        <!-- <div>{JSON.stringify(product.BrowseNodeInfo)}</div> -->
-                    </div>
-                </div>
-                <div class="text-right">
-                    <div class="font-semibold">{product.Offers?.Listings[0].Price.DisplayAmount}</div>
-                    <!-- <div class="text-sm">{product.Offers.Listings[0].Price.Savings?.DisplayAmount ?? ''}</div> -->
-                </div>
-            </li>    
-            <!-- content here -->
-        {/each}
-    </ul>
 </div>
+<Footer />
 
-<footer class="py-8 text-center">
-    <p>This site is powered by paid affiliate links.</p>
-</footer>
 
