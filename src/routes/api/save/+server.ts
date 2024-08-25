@@ -4,13 +4,17 @@ import amazonPaapi from 'amazon-paapi';
 import type { RequestHandler } from '../$types';
 import { table } from '$lib/deta';
 
-export async function POST({url}): Promise<Response> {
+export async function GET({url}): Promise<Response> {
 
     // if (request.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
     //     return error(401,'Unauthorized', )
     // }    
     const q = url.searchParams.get('q')
-    const page = url.searchParams.get('page')
+    const page = parseInt(url.searchParams.get('page') ?? '1')
+
+    if (!q) {
+        return error(400, 'Bad Request') 
+    }
 
     let requestParameters = {
         Keywords: q,
