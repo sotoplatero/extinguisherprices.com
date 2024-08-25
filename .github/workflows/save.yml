@@ -1,0 +1,36 @@
+name: Fire Extinguisher API Calls
+
+on:
+  schedule:
+    # Ejecutar todos los días cada dos horas desde las 12:00 AM hasta las 9:00 AM
+    - cron: '0 */4 * * *'
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call API with multiple q values
+        run: |
+          queries=(
+            "ABC%20Fire%20Extinguisher"
+            "CO2%20Fire%20Extinguisher"
+            "Class%20K%20Fire%20Extinguisher"
+            "Dry%20Chemical%20Fire%20Extinguisher"
+            "Foam%20Fire%20Extinguisher"
+            "Water%20Fire%20Extinguisher"
+            "Halon%20Fire%20Extinguisher"
+            "Class%20D%20Fire%20Extinguisher"
+            "Portable%20Fire%20Extinguisher"
+            "Home%20Fire%20Extinguisher"
+            "Commercial%20Fire%20Extinguisher"
+            "Kitchen%20Fire%20Extinguisher"
+          )
+          for q in "${queries[@]}"; do
+            echo "Processing query: $q"
+            for i in {1..10}; do
+              curl -X POST "https://extinguisherprices.com/api/save?q=$q&page=$i" -H "Accept: application/json"
+              echo "Call #$i for query $q completed."
+              sleep 50  # Espera 1 minuto entre cada llamada
+            done
+          done

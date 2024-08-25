@@ -10,13 +10,12 @@ export async function POST({url}): Promise<Response> {
     //     return error(401,'Unauthorized', )
     // }    
     const q = url.searchParams.get('q')
-    const response = await table('metadata').get('ItemPage') 
-    let ItemPage: number = response?.value as number ?? 1
+    const page = url.searchParams.get('page')
 
     let requestParameters = {
         Keywords: q,
         SearchIndex: 'ToolsAndHomeImprovement',
-        ItemPage: ItemPage,
+        ItemPage: page,
         BrowseNodeId: "13400621",
         Resources: [
           'Images.Primary.Medium',
@@ -44,10 +43,6 @@ export async function POST({url}): Promise<Response> {
             await table('products').putMany(items)
         }
         
-        ItemPage = (ItemPage == 10) ? 1 : ItemPage + 1
-        console.log(ItemPage)
-        await table('metadata').put( ItemPage, 'ItemPage') 
-
         return new Response('OK');
 
     } catch (error) { 
