@@ -17,8 +17,8 @@
     </div>
     <div class="flex-none">
         <div class="flex items-stretch">
-            <a href="/faq" class="btn btn-link rounded-btn">FAQ</a>
-            <div class="dropdown dropdown-end ">
+            <a href="/about" class="btn btn-link rounded-btn">About</a>
+            <!-- <div class="dropdown dropdown-end ">
               <div tabindex="0" role="button" class="btn btn-link rounded-btn">Categories</div>
               <ul tabindex="0" class="menu dropdown-content bg-base-100 z-[1] mt-4 p-2 rounded border">
                 <li><a href="/abc-fire-extinguisher">ABC</a></li>
@@ -27,7 +27,7 @@
                 <li><a href="/car-fire-extinguisher">Car</a></li>
                 <li><a href="/extinguisher-for-kitchen">Kitchen/Oil</a></li>
               </ul>
-            </div>
+            </div> -->
           </div>        
     </div>
   </div>

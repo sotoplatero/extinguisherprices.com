@@ -21,9 +21,9 @@
             ).map( product => 
                 ({ ...product, price: formatPrice(product.Offers?.Listings[0].Price.DisplayAmount)})
             ).filter(product => 
-                product.price > 0 &&
-                (!!minprice ? product.price >= parseInt(minprice) : true ) &&
-                (!!maxprice ? product.price <= parseInt(maxprice) : true )
+                product.price > 0
+                // (!!minprice ? product.price >= parseInt(minprice) : true ) &&
+                // (!!maxprice ? product.price <= parseInt(maxprice) : true )
             ).sort((a,b) => a.price - b.price )
 
     // $: console.dir(maxprice)
@@ -40,20 +40,19 @@
     <div class="flex flex-col sm:flex-row items-end gap-2">
         <label for="q" class="">
             <div>Search</div>
-            <input type="text" name="q" bind:value={q} class="input input-bordered input-sm rounded">
+            <input type="text" name="q" bind:value={q} class="input input-bordered rounded w-full sm:w-auto">
         </label>
-        <div class="flex gap-2">
+        <!-- <div class="flex gap-2">
             <label for="minprice">
                 <div>Min Price</div>
-                <input type="text" name="minprice" bind:value={minprice} class="input input-bordered input-sm rounded w-20">
+                <input type="text" name="minprice" bind:value={minprice} class="input input-bordered input-sm rounded w-   sm:w-20">
             </label>
             <label for="minprice">
                 <div>Max Price</div>
-                
-                <input type="text" name="maxprice" bind:value={maxprice}  class="input input-bordered input-sm rounded w-20">
+                <input type="text" name="maxprice" bind:value={maxprice}  class="input input-bordered input-sm rounded w-1/2 sm:w-20">
             </label>
-        </div>
-        <button class="btn btn-sm rounded">Search</button>
+        </div> -->
+        <button class="btn rounded">Search</button>
     </div>
     <Products {products} />
 
