@@ -12,10 +12,10 @@ jobs:
 
     env:  # Define environment variables here
       NODE_ENV: production
-      DETA_PROJECT_KEY: ${{ secrets.DETA_PROJECT_KEY }}
-      AMAZON_ACCESS_KEY: ${{ secrets.AMAZON_ACCESS_KEY }}
-      AMAZON_SECRET_KEY: ${{ secrets.AMAZON_SECRET_KEY }}
-      AMAZON_ASSOCIATE_TAG: ${{ secrets.AMAZON_ASSOCIATE_TAG }}
+      DETA_PROJECT_KEY: ${{ env.DETA_PROJECT_KEY }}
+      AMAZON_ACCESS_KEY: ${{ env.AMAZON_ACCESS_KEY }}
+      AMAZON_SECRET_KEY: ${{ env.AMAZON_SECRET_KEY }}
+      AMAZON_ASSOCIATE_TAG: ${{ env.AMAZON_ASSOCIATE_TAG }}
 
     steps:
     - name: Checkout code
