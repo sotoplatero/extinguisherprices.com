@@ -35,9 +35,8 @@
 </svelte:head>
 
 
-<Header />
 <div class="my-8 space-y-4">
-    <div class="flex flex-col sm:flex-row items-end gap-2">
+    <div class="flex flex-row items-end gap-2">
         <label for="q" class="">
             <div>Search</div>
             <input type="text" name="q" bind:value={q} class="input input-bordered rounded w-full sm:w-auto">
@@ -57,6 +56,6 @@
     <Products {products} />
 
 </div>
-<Footer />
+
 
 
