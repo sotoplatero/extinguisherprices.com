@@ -1,6 +1,6 @@
 <div class="flex items-center bg-white dark:bg-gray-900">
     <div class="container mx-auto">
-      <div class="max-w-md mx-auto bg-white p-5 rounded-md shadow-sm">
+      <div class="max-w-lg mx-auto bg-white p-5 rounded-md shadow-sm">
         <div class="text-center">
           <h1
             class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200"
@@ -37,8 +37,7 @@
                 id="name"
                 placeholder="John Doe"
                 required
-                class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
-              />
+                class="input input-bordered w-full ">
             </div>
             <div class="mb-6">
               <label
@@ -52,7 +51,7 @@
                 id="email"
                 placeholder="you@company.com"
                 required
-                class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                class="input input-bordered w-full "
               />
             </div>
 
@@ -68,14 +67,14 @@
                 name="message"
                 id="message"
                 placeholder="Your Message"
-                class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                class="textarea textarea-bordered w-full"
                 required
               ></textarea>
             </div>
             <div class="mb-6">
               <button
                 type="submit"
-                class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none"
+                class="btn btn-info w-full"
               >
                 Send Message
               </button>
