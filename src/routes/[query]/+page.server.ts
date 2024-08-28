@@ -6,9 +6,10 @@ import type { PageLoad } from '../$types';
 export const load: PageLoad = async ({params}) => {
 
     const {query} = params
+    const keywords = query.replace(/-/g, ' ')
 
     let requestParameters = {
-        Keywords: query,
+        Keywords: keywords,
         SearchIndex: 'ToolsAndHomeImprovement',
         // ItemPage: page,
         BrowseNodeId: "13400621",

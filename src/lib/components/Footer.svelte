@@ -1,3 +1,5 @@
+<script>
+</script>
 <footer class="mb-10">
     <hr class="my-10">
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-left">
@@ -16,7 +18,7 @@
             'Fire Extinguisher for Office',	
             'Fire Extinguisher for Boat',		
         ] as page}
-            <a href="/{encodeURIComponent(page)}" class="link ">{page}</a>
+            <a href="/{page.toLowerCase().replace(/\s/g,'-')}" class="link ">{page}</a>
              <!-- content here -->
         {/each}
     </div>
