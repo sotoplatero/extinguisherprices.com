@@ -16,9 +16,9 @@
       </a>
     </div>
     <div class="flex-none">
-        <div class="flex items-stretch">
-            <a href="/about" class="btn btn-link rounded-btn">About</a>
-            <a href="/contact" class="btn btn-link rounded-btn">Contact</a>
+        <div class="flex items-stretch space-x-2">
+            <a href="/about" class="link">About</a>
+            <a href="/contact" class="link">Contact</a>
             <!-- <div class="dropdown dropdown-end ">
               <div tabindex="0" role="button" class="btn btn-link rounded-btn">Categories</div>
               <ul tabindex="0" class="menu dropdown-content bg-base-100 z-[1] mt-4 p-2 rounded border">
