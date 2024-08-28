@@ -20,5 +20,5 @@
              <!-- content here -->
         {/each}
     </div>
-    <p class="text-center">This site is powered by paid affiliate links.</p>
+    <p class="text-center mt-6">This site is powered by paid affiliate links.</p>
 </footer>
