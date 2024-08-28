@@ -1,4 +1,5 @@
-<footer class="py-10 text-center">
+<footer class="mb-10">
+    <hr class="my-10">
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-left">
         {#each [
             'CO2 Fire Extinguisher',
@@ -19,5 +20,5 @@
              <!-- content here -->
         {/each}
     </div>
-    <p>This site is powered by paid affiliate links.</p>
+    <p class="text-center">This site is powered by paid affiliate links.</p>
 </footer>

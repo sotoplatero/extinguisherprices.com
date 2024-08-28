@@ -3,8 +3,9 @@ import { json, text, error } from '@sveltejs/kit';
 import {commonParameters } from '$lib/amazon';
 import amazonPaapi from 'amazon-paapi';
 
-export const load: PageLoad = async ({ request }) => {
+export const load: PageLoad = async ({ url }) => {
 
+    const formatD = await url.searchParams.get('d')
 
     let requestParameters = {
         Keywords: 'fire extinguisher',
