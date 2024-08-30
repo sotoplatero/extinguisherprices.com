@@ -16,7 +16,7 @@
 
     $: products = data?.products
             .filter(product =>
-                !/bracket|cable|cabinet|Gauges/i.test(product.ItemInfo?.Title?.DisplayValue) && 
+                !/bracket|cable|cabinet|Gauges|extinguisher holder|extinguisher base/i.test(product.ItemInfo?.Title?.DisplayValue) && 
                 (new RegExp( q, "i")).test(product.ItemInfo?.Title?.DisplayValue)
             ).map( product => 
                 ({ ...product, price: formatPrice(product.Offers?.Listings[0].Price.DisplayAmount)})
