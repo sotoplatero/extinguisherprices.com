@@ -14,7 +14,7 @@
             'Portable Fire Extinguisher',
             'Fire Extinguisher for Home',	
             'Fire Extinguisher for Car',	
-            'Fire Extinguisher for Kitchen',
+            'Fire Extinguisher for Kitchen',  
             'Fire Extinguisher for Office',	
             'Fire Extinguisher for Boat',	
             'Fire Extinguisher with Mounting Bracket',
@@ -23,7 +23,11 @@
             'Marine Fire Extinguisher',
             'Commercial Fire Extinguisher',
             'Fire Extinguisher for Trucks',
-            'Fire Extinguisher for Warehouse'	
+            'Fire Extinguisher for Warehouse',
+            'class k fire extinguisher',
+            'electrical fire extinguisher',
+            'fire extinguisher cabinet',
+            'dry chemical fire extinguisher'
         ] as page}
             <a href="/{page.toLowerCase().replace(/\s/g,'-')}" class="link leading-tight">{page}</a>
         {/each}
