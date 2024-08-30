@@ -29,7 +29,7 @@
             'fire extinguisher cabinet',
             'dry chemical fire extinguisher'
         ] as page}
-            <a href="/{page.toLowerCase().replace(/\s/g,'-')}" class="link leading-tight">{page.replace(/\b\w/g, char => char.toUpperCase());}</a>
+            <a href="/{page.toLowerCase().replace(/\s/g,'-')}" class="link leading-tight">{page.replace(/\b\w/g, char => char.toUpperCase())}</a>
         {/each}
     </div>
     <p class="text-center mt-8">This site is powered by paid affiliate links.</p>
